@@ -4,7 +4,7 @@
 
 1. portfolio
 ***
-* Link : [portfolio_01][portfolio_01]
+* Link : [portfolio][portfolio_01]
 [portfolio_01]: ./portfolio/01/
 * Link : 
 2. htmlcss
