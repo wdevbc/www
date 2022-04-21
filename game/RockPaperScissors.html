@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RockScissorPaper</title>
+		<style>
+			#computer {
+				width: 220px;
+				height: 200px;
+                border:5px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="computer"></div>
+		<!--가위바위보 들어가는 컴퓨터 이미지 들어가는 자리-->
+		<div>
+			<button id="scissors" class="btn">가위</button>
+			<button id="rock" class="btn">바위</button>
+			<button id="paper" class="btn">보</button>
+		</div>
+		<div id="score">0</div>
+		<script>
+			const $computer = document.querySelector('#computer');
+			const $score = document.querySelector('#score');
+			const $rock = document.querySelector('#rock');
+			const $scissors = document.querySelector('#scissors');
+			const $paper = document.querySelector('#paper');
+			const img_URL = './gawebawebo.png'; //상대 경로  //절대경로 : 항상 c드라이브부터 시작
+			$computer.style.background = `url(${img_URL}) 0 0`; //가로위치 세로위치 //가위
+			$computer.style.background = `url(${img_URL}) -200 0`; //가로위치 세로위치 //바위
+			// $computer.style.background = `url(${img_URL}) -440 0`; //가로위치 세로위치 //보
+			$computer.style.backgroundSize = 'auto 200px'; //사이즈 맞추기 //가로너비 세로너비
+
+			const rspX = {
+				scissors: '-10px', //가위
+				rock: '-245px', //바위
+				paper: '-485px', //보
+			};
+
+			let ComputerChoice = 'scissors';
+			const changeComputerHand = () => {
+				if (ComputerChoice === 'scissors') {
+					//가위면
+					ComputerChoice = 'rock';
+				} else if (ComputerChoice === 'rock') {
+					//바위
+					ComputerChoice = 'paper';
+				} else {
+					//보
+					ComputerChoice = 'scissors';
+				}
+				$computer.style.background = `url(${img_URL}) ${rspX[ComputerChoice]} 0`;
+				$computer.style.backgroundSize = 'auto 200px';
+			};
+			let intervalId = setInterval(changeComputerHand, 50);
+
+			//백그라운드 바꿀때는 백그라운드 사이즈도 한번 더 적어줘야 문제 발생하지 않음.!!
+			//왜냐? 백그라운드 사이즈 리셋된다
+			//가로는 auto, 세로는 200px, 가로세로의 비율 유지하면서 세로 길이가 200px 될때까지 이미지 줄임.
+			//이렇게 설정하면 되는데 이게 중복되잖아
+			//공통점이 뭘까? 좌표지
+			//객체로 묶을 수 있어. 그룹화 : 여러 개의 변수 하나로 묶어줌.
+
+			//다음
+			//0.05초마다 가위바위보 그림 바꿔볼게.
+			//이미지의 x좌표만 바꿔서 #computer 태그의 background에 넣으면 되겠지?
+
+			const scoreTable = {
+				rock: 0,
+				scissors: 1,
+				paper: -1,
+			};
+
+			let clickable = true;
+			let score = 0;
+
+			const clickButton = () => {
+				if (clickable) {
+					clearInterval(intervalId);
+					clickable = false;
+					const myChoice =
+						event.target.textContent === '바위'
+							? 'rock'
+							: event.target.textContent === '가위'
+							? 'scissors'
+							: 'paper';
+					const myScore = scoreTable[myChoice];
+					const computerScore = scoreTable[ComputerChoice];
+					const diff = myScore - computerScore;
+					let message;
+					if (diff === 2 || diff === -1) {
+						score += 1;
+						message = '승리';
+					} else if (diff === -2 || diff === 1) {
+						score -= 1;
+						message = '패배';
+					} else {
+						message = '무승부';
+					}
+					console.log(score);
+					$score.textContent = `${message} 총 : ${score}점`;
+
+					//점수 계산 및 화면 표시
+					setTimeout(() => {
+						clickable = true;
+						intervalId = setInterval(changeComputerHand, 50);
+					}, 1000);
+				}
+			};
+			$rock.addEventListener('click', clickButton);
+			$scissors.addEventListener('click', clickButton);
+			$paper.addEventListener('click', clickButton);
+
+			//여기까지 하고 실행
+		</script>
+	</body>
+</html>

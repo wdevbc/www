@@ -1,0 +1,11 @@
+* {margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif}
+.container {scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh;scrollbar-width:none;-ms-text-overflow-style:none}
+.container::-webkit-scrollbar {width:0;background-color:transparent}
+section {height:100vh;display:flex;justify-content:center;align-items:center;color:#fff;scroll-snap-align:start}
+
+
+
+.one {background:rgb(72, 14, 163)}
+.two {background:rgb(235, 97, 46)}
+.three {background:rgb(38, 124, 30)}
+.four {background:rgb(50, 47, 206)}

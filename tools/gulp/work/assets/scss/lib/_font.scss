@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-weight:300;
+	src:
+			local(※), /* IE fix */
+			url(../font/NotoSans-Light.woff2) format('woff2'),
+			url(../font/NotoSans-Light.woff) format('woff');
+}

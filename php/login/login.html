@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login php - wdev.kr</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <header>
+                <h1><a href="#"><img src="logo.png" alt=""></a></h1>
+                <div class="gnb">
+                    <div class="gnb__wrap">
+                        <img src="gnb.png" alt="">
+                    </div>
+                </div>
+            </header>
+            <section class="content">
+                <form name="login_form" method="post" action="login_action.php">
+                    <input type="text" name="id" placeholder="아이디">
+                    <input type="password" name="pass" placeholder="비밀번호">
+                    <div class="btn">
+                        <div class="btn__wrap">
+                            <button type="button" class="btn-login" onclick="check_input()">
+                                로그인
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+
+<!-- js -->
+<script>
+    function check_input(){
+    if(!document.login_form.id.value)
+    {
+        alert('아이디를 입력하세요');
+        document.login_form.id.focus();
+        return;
+    }
+    if(!document.login_form.pass.value)
+    {
+        alert('비밀번호를 입력하세요');
+        document.login_form.pass.focus();
+        return;
+    }
+    document.login_form.submit();
+}
+</script>
+
+</html>

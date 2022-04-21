@@ -1,0 +1,17 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- css -->
+<link rel="stylesheet" href="css/style.css?v=<?php echo date("YmdHis"); ?>">
+<!-- jquery360 -->
+<script src="jquery360.min.js"></script>
+<!-- aos -->
+<script src="aos.js"></script>
+<link href="aos.css" rel="stylesheet">
+<!-- loading -->
+<script>
+window.onload = function(){
+	$('.loading').fadeOut(800) //로딩 객체 제거
+	$('body').removeClass('scrollLock') //스크롤 락 제거
+}
+</script>
