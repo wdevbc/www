@@ -1,9 +1,9 @@
 <?php
     // 아이디와 비밀번호 전달받기
-    $id = $_POST["id"];
-    $pass = $_POST["pass"];
+$id = $_POST["id"];
+$pass = $_POST["pass"];
 
-$con = mysqli_connect("localhost", "buser", "buser", "buser");
+$con = mysqli_connect("localhost", "아이디", "비밀번호", "테이블");
 $sql = "select * from members where id='$id'";
 $result = mysqli_query($con, $sql);
 

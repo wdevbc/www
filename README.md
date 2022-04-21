@@ -1,7 +1,9 @@
 # Web page - work list
+<br>
+<br>
 
 ## 1. portfolio
-****
+
 * [portfolio01][portfolio_01]
 
 [portfolio_01]: ./portfolio/01/
@@ -14,7 +16,7 @@
 <br>
 
 ## 2. html&css
-****
+
 * [mobile_mokup][mokup_01]
 
 [mokup_01]: ./htmlcss/mokup/
@@ -30,7 +32,6 @@
 <br>
 
 ## 3. javascript
-****
 
 * [대소문자일괄변환기][upLowCase]
 
@@ -39,19 +40,10 @@
 <br>
 
 ## 4. php
-****
 
 * [갤러리게시판][board]
 
-[board]: ./php/board/board/
-
-* [심플게시판][simple_board]
-
-[simple_board]: ./php/simple_board/
-
-* [include][include]
-
-[include]: ./php/include/
+[board]: http://wdev.kr
 
 * [login][login]
 
@@ -59,12 +51,15 @@
 
 * [calendar][calendar]
 
-[calendar]: ./php/calendar/
+[calendar]: http://wdev.kr/stu/calendar
+
+* 심플게시판
+* include
 
 <br>
 
 ## 5. game
-****
+
 * [가위바위보게임][RockPaperScissors]
 
 [RockPaperScissors]: ./game/gawebawebo/RockPaperScissors.html
