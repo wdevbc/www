@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- contact wdev.kr -->
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 구글 검색</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="title">Wdev</h1>
+    </header>
+    <div class="wrap">
+        <section class="content">
+            <div class="search-wrap">
+                <h2 class="title title--body">Naver&Google SEARCH</h2>
+                <div class="search search--naver">
+                    <form id="search_form" action="https://search.naver.com/search.naver" target="_blank" method="get">
+                        <fieldset id="fieldset" style="border-style:none;margin:0;padding:0;">
+                            <input name="query" id="searchText" name="naver" title="검색어" class="searchText" autofocus
+                                placeholder="Naver.com 검색" autocomplete="off" type="text" required="true" />
+                            <button class="btn btn-search" title="검색" id="searchBtnn">검색</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="search search--google">
+                    <form id="search_form" action="https://www.google.com/search?q=" target="_blank" method="get">
+                        <fieldset id="fieldset" style="border-style:none;margin:0;padding:0;">
+                            <input name="query" id="searchText" title="검색어" class="searchText"
+                                placeholder="Google.com 검색" autocomplete="off" type="text" required="true" />
+                            <button class="btn btn-search" title="검색" id="searchBtnn">검색</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        Copyright © wdev.kr Corp. All Rights Reserved.
+    </footer>
+</body>
+
+</html>

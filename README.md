@@ -29,6 +29,10 @@
 
 [videoscrollsite]: ./htmlcss/video_scrollsite/
 
+* [네이버&구글 검색][search_naverGoogle]
+
+[search_naverGoogle]: ./htmlcss/naver_google_uni/
+
 <br>
 
 ## 3. javascript
@@ -36,6 +40,10 @@
 * [대소문자일괄변환기][upLowCase]
 
 [upLowCase]: ./javascript/upLowCase/
+
+* [레이어팝업][layer_popup]
+
+[layer_popup]: ./javascript/layer_popup/layer.html
 
 <br>
 
@@ -51,7 +59,7 @@
 
 * [calendar][calendar]
 
-[calendar]: http://wdev.kr/stu/calendar
+[calendar]: http://wdev.kr/stu/calendar/calendar.php
 
 * 심플게시판
 * include
@@ -70,5 +78,5 @@
 
 * [gulp4.0][gulp]
 
-[gulp]: ./tools/gulp/
+[gulp]: https://github.com/wdevbc/www/tree/main/tools/gulp
 
