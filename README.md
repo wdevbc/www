@@ -23,7 +23,7 @@
 
 * [js없이 css스크롤 사이트][nojsandcss]
 
-[nojsandcss]: ./htmlcss/onlycss_scrollsite/
+[nojsandcss]: ./htmlcss/onlycss_scrollsite/css_scroll.html
 
 * [비디오스크롤사이트][videoscrollsite]
 
