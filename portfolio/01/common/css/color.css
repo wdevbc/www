@@ -1,0 +1,15 @@
+:root {
+    /* common */
+    --white-color:#fff;
+    --black-color:#000;
+    --black2-color:#333;
+    --white-rgb01:rgba(255,255,255,0.1);
+    --white-rgb09:rgba(255,255,255,0.9);
+    --white-rgb02:rgba(255,255,255,0.2);
+    --black-rgb07:rgba(100,100,100,0.7);
+    --180-rgb01:rgba(180,180,180,0.1);
+    --blue-drak:#293241;
+    --blue-light:#add0ff;
+    /* text */
+    
+}
