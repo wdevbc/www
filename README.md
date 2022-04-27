@@ -53,6 +53,14 @@
 
 [layer_popup]: ./javascript/layer_popup/layer.html
 
+* [scrollout][scrollout]
+
+[scrollout]: ./javascript/scrollout/
+
+* [typeitjs][typeitjs]
+
+[typeitjs]: ./javascript/typeitjs/
+
 <br>
 
 >## 4. php

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typeitjs</title>
+    <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
+    <style>
+        :root {
+            --ti-cursor-margin-left: 0.1em;
+            --ti-cursor-color: #a00;
+        }
+        .warpbox {width:1024px;margin:0 auto}
+    </style>
+</head>
+<body>
+    <div class="warpbox">
+        <b>strings에 문자를 입력하여 타이핑 진행</b>
+        <h1></h1>
+        <br>
+        <br>
+        <b>태그안에 문자를 타이핑 진행</b>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, blanditiis placeat nihil nesciunt quos expedita facere, suscipit tempore cumque nam unde ipsam reprehenderit reiciendis iure? Ratione inventore quasi fuga unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, blanditiis placeat nihil nesciunt quos expedita facere, suscipit tempore cumque nam unde ipsam reprehenderit reiciendis iure? Ratione inventore quasi fuga unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, blanditiis placeat nihil nesciunt quos expedita facere, suscipit tempore cumque nam unde ipsam reprehenderit reiciendis iure? Ratione inventore quasi fuga unde!
+        </p>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        new TypeIt("h1", {
+        strings: "타이핑 제어하기 플러그인 입니다.",
+        speed: 100,
+        loop: false,
+    })
+    .pause(1000)
+    .delete(5, { delay: 1000})
+    .type('!!!')
+    .go();
+
+    new TypeIt("p", {
+        speed: 50,
+        loop: false,
+    })
+    .pause(1000)
+    .delete(5, { delay: 1000})
+    .type('!!!')
+    .go();
+    });
+    
+</script>
+</html>
