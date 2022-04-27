@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>typeitjs</title>
     <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
+    <script src="./common.js"></script>
     <style>
         :root {
             --ti-cursor-margin-left: 0.1em;
@@ -26,27 +27,5 @@
         </p>
     </div>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        new TypeIt("h1", {
-        strings: "타이핑 제어하기 플러그인 입니다.",
-        speed: 100,
-        loop: false,
-    })
-    .pause(1000)
-    .delete(5, { delay: 1000})
-    .type('!!!')
-    .go();
 
-    new TypeIt("p", {
-        speed: 50,
-        loop: false,
-    })
-    .pause(1000)
-    .delete(5, { delay: 1000})
-    .type('!!!')
-    .go();
-    });
-    
-</script>
 </html>
