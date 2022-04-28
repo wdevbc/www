@@ -61,6 +61,10 @@
 
 [typeitjs]: ./javascript/typeitjs/
 
+* [mouse_change][mouse_change]
+
+[mouse_change]: ./javascript/mouse_change/
+
 <br>
 
 >## 4. php

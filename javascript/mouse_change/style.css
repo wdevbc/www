@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea, button, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin:0; padding:0; border:0; -webkit-box-sizing:border-box; box-sizing:border-box; -moz-box-sizing:border-box;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block}
+h1,h2,h3,h4,h5,h6 {font-size:1em; font-weight:normal}
+ol, ul {list-style:none}
+table {width:100%; border-collapse:collapse; border-spacing:0}
+a {text-decoration:none}
+a:hover {text-decoration:none}
+legend, caption, hr {display:none}
+em {font-style:normal}
+img {vertical-align:top}
+html {height:100%}
+body {width:100%; height:100%}
+button {border:0; background-color:transparent; cursor:pointer}
+input {appearance: none; border-radius:0; -webkit-appearance: none; -webkit-border-radius: 0;}
+.ir {position:absolute; overflow:hidden; width:0px; height:0px; font-size:0}
+
+.cursor { position: fixed; background-color: black; width: 10px; height: 10px; border-radius: 100%; z-index: 1; transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, .2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity; user-select: none; pointer-events: none; z-index: 10000; transform: scale(1); cursor: none;}
+.cursor_img {position: fixed;width:48px;height:48px;user-select: none;pointer-events: none;z-index: 10000;cursor: none;background-image: url(data:image/png;base64,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);}
+.cursor.active { opacity: 1; transform: scale(0); } 
+.cursor.menu-active { opacity: 1; transform: scale(0); } 
+.cursor.hovered { opacity: 1; } 
+.cursor-follower { position: fixed; border:3px solid black; width: 30px; height: 30px; border-radius: 100%; z-index: 1; transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) background; user-select: none; pointer-events: none; z-index: 10000; transform: translate(2px, 2px); /* overflow: hidden; */ }
+.cursor-follower.active { opacity: 1; transform: scale(2); border:3px solid #007adf} 
+.cursor-follower.menu-active { opacity: 1; transform: scale(2); } 
+.cursor-follower.hovered { opacity: 1; } 
+
+#wrap{height:100%;overflow:auto}
+#header {position: fixed;top: 0;left: 0;width:100%;height: 67px;background: rgba(0,0,0,.75);display: flex;justify-content: center;z-index: 1;}
+#header ul {display: flex; justify-content: space-evenly;}
+#header ul li {margin:0 30px; }
+#header ul li a {font-size:16px;color:#fff;cursor: none;} 
+.active_box{cursor: none;}
+.cursor_act{cursor: default;}
+.cursor_dis{cursor: none;}
+.box{width:100%;height: 100%;display: flex;justify-content: center;align-items: center;border-left: 2px solid #404040;font-size: 30px;}
+.box:first-child{border-left: none}
+section { height:400px; text-align: center; } 
+.inner {padding:20px;margin:0 auto;position: relative;width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;} 
+#sec_1 { background: linear-gradient(#e66465, #9198e5);} 
+#sec_2 { background: linear-gradient(to top, #007adf 0%, #00ecbc 100%)} 
+#sec_3 { background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);} 
+#sec_4 { background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);} 
