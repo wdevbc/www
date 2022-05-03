@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smooth-scrollbar</title>
+    <style>
+        * {margin:0;padding:0}
+        section {height:100vh;width:100%}
+        .section1 {background:#511}
+        .section2 {background:#551}
+        .section3 {background:#555}
+        .section4 {background:#151}
+        .section5 {background:#155}
+        #inner {
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="smooth-scrollbar.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            Scrollbar.initAll({
+                alwaysShowTracks: true // 스크롤바 보이기 항상
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="" id="inner" data-scrollbar>
+        <section class="section1">
+
+        </section>
+        <section class="section2">
+            
+        </section>
+        <section class="section3">
+            
+        </section>
+        <section class="section4">
+            
+        </section>
+        <section class="section5">
+            
+        </section>
+    </div>
+</body>
+</html>

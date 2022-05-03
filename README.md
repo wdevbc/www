@@ -47,23 +47,27 @@
 
 * [대소문자일괄변환기][upLowCase]
 
-[upLowCase]: ./javascript/upLowCase/
+[upLowCase]: ./javascript/dev/upLowCase/
 
 * [레이어팝업][layer_popup]
 
-[layer_popup]: ./javascript/layer_popup/layer.html
+[layer_popup]: ./javascript/dev/layer_popup/layer.html
 
 * [scrollout][scrollout]
 
-[scrollout]: ./javascript/scrollout/
+[scrollout]: ./javascript/library/scrollout/
 
 * [typeitjs][typeitjs]
 
-[typeitjs]: ./javascript/typeitjs/
+[typeitjs]: ./javascript/library/typeitjs/
 
 * [mouse_change][mouse_change]
 
-[mouse_change]: ./javascript/mouse_change/
+[mouse_change]: ./javascript/dev/mouse_change/
+
+* [smooth_scrollbar][smooth_scrollbar]
+
+[smooth_scrollbar]: ./javascript/library/smooth_scrollbar/
 
 <br>
 

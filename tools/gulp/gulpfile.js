@@ -16,7 +16,7 @@ const gulp = require("gulp"),
     sourcemaps = require("gulp-sourcemaps"),
     ejs = require("gulp-ejs")
 
-var lang = "/en"
+var lang = "/ko"
 var src = "work" + lang;
 var dist = "dist" + lang;
 
@@ -50,13 +50,17 @@ var DESTPATH = {
     }
 };
 
-// js, scss concat(병합) 시 파일 이름 지정
+/*
+js, scss concat(병합) 시 파일 이름 지정
+*/
 var fileName = {
     style: "common.css",
     javascript: "common.js"
 };
 
-// scss options
+/*
+scss options
+*/
 var scssOptions = {
     // 코드 스타일 / values: nested, expanded, compact, compressed
     outputStyle: "expanded",
@@ -68,7 +72,10 @@ var scssOptions = {
     sourceComments: false
 }
 
-// browser-sync index file name(띄워질 html)
+/*
+browser-sync index file name(띄워질 html)
+*/
+
 var browserSyncFileName = "index.html";
 
 /* 
@@ -86,7 +93,7 @@ function html() {
     return gulp.src(PATH.HTML)
         .pipe(gulp.dest(DESTPATH.HTML))
 }
-// ejs
+// ejs task
 function gulpEjs() {
     return gulp.src(PATH.HTML)
         .pipe(ejs())
@@ -111,14 +118,14 @@ function style() {
         .pipe(browsersync.stream()),
     )
 }
-// lib
+// lib task
 function lib() {
     return gulp.src(PATH.ASSETS.LIB)
         .pipe(gulp.dest(DESTPATH.ASSETS.LIB))
         .pipe(browsersync.stream())
 }
 
-// font
+// font task
 function font() {
     return gulp.src(PATH.ASSETS.FONT)
         .pipe(newer(DESTPATH.ASSETS.FONT))
@@ -233,11 +240,10 @@ const builditem = [
 module.exports = {
     default: gulp.parallel(defaultitem),
     build: gulp.series(gulp.parallel(builditem)),
-    // 추가 명령어 - 사용법 gulp 명령어
+    // 추가 명령어 - 사용법 gulp '명령어'
     sprite: gulp.series(sprite), //gulp sprite
     clean: gulp.series(clean), //gulp clean
     배포: gulp.series(gulp.parallel(builditem)), //빌드
     실행: gulp.parallel(defaultitem),
     원본복사: gulp.series(copy), //assets 폴더 통으로 복사
-    한글로: gulp.series(gulp.parallel(builditem)) //빌드
 };
