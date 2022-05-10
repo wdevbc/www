@@ -41,6 +41,11 @@
 
 [search_naverGoogle]: ./htmlcss/naver_google_uni/
 
+* [html&css_guide][html&css_guide]
+
+[html&css_guide]: ./htmlcss/guide/
+
+
 <br>
 
 >## 3. javascript
@@ -83,7 +88,7 @@
 
 * [calendar][calendar]
 
-[calendar]: http://wdev.kr/stu/calendar/calendar.php
+[calendar]: http://stu.wdev.kr/calendar/calendar.php
 
 * 심플게시판
 * include
