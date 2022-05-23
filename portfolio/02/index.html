@@ -35,10 +35,7 @@
         $(document).ready(function(){
             $('.project>li').each(function(index){
                 $(this).click(function(){
-                    // 해당 li 최상단으로 이동
-                    var tops = $(this).offset().top
-                    $('html, body').stop().animate({scrollTop:tops}, 500, "linear")
-                    return false
+                    
                     // 펼쳐짐효과
                     if($(this).is('.on')){
                         $(this).removeClass('on')
@@ -48,8 +45,10 @@
                         $(this).find('.project__detail').animate({height:'100%'},)
                         $(this).siblings().find('.project__detail').animate({height:'0'},)
                     }
-                    
-                    // $(this).toggleClass('on').siblings().removeClass('on')
+                    // 해당 li 최상단으로 이동
+                    var tops = $(this).offset().top
+                    $('html, body').stop().animate({scrollTop:tops}, 500, "linear")
+                    return false
                 })
             })
             
