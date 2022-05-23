@@ -36,12 +36,9 @@
             $('.project>li').each(function(index){
                 $(this).click(function(){
                     // 해당 li 최상단으로 이동
-                    var topBtn = $(this)
                     var tops = $(this).offset().top
-                    topBtn.click(function () {
-                        $('html, body').stop().animate({scrollTop:tops}, 500, "linear")
-                        return false
-                    });
+                    $('html, body').stop().animate({scrollTop:tops}, 500, "linear")
+                    return false
                     // 펼쳐짐효과
                     if($(this).is('.on')){
                         $(this).removeClass('on')
