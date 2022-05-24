@@ -1,0 +1,88 @@
+body{
+    background-color: rgb(9,17,26);
+}
+td{
+    width: 14px;
+    height: 14px;
+}
+.wrap{
+    max-width:500px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+.title {font-size:20px;font-weight:bold;color:#fff}
+.title-main {text-align:center;font-size:30px;margin-bottom:100px}
+.lang_select {text-align: center}
+.lang_select > a {display:inline-block;text-decoration:none;color:#333;font-weight:bold;background:#fff;max-width:150px;width:100%;height:60px;line-height:60px;border-radius:15px;margin:10px 30px;font-size:20px;transition:all 0.5s ease-in-out}
+.lang_select > a:hover {background:#000;color:#fff}
+.copy {text-align:center;color:#fff}
+.bitcoin {color:#fff;font-size:30px}
+#gameField{
+
+}
+#scoreField{
+    float: right;
+    background-color: rgb(14,31,49);
+}
+#score, #level{
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    height: 30px;
+}
+.sub{
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(21,46,74);
+    margin: 0px;
+    height:49px;
+    line-height:49px
+}
+#about{
+    font-size: 20px;
+}
+#about:hover{
+    color:rgb(199,82,82);
+}
+#nextTable{
+    float: right;
+    margin: 0px;
+    position: absolute;
+    right: 34px;
+    top: 390px;
+}
+#help{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    height: 32px;
+    margin: 1px;
+}
+#comboField{
+    position: absolute;
+    left: 27px;
+    top: 320px;
+    width: 384px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+#pause, #gameover{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%, -50%);
+    visibility: hidden;
+    color: white;
+}
+@media screen and (max-width:420px) {
+    #about, .sub {font-size:16px;box-sizing:border-box}
+}

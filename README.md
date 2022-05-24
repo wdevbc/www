@@ -105,6 +105,10 @@
 
 [RockPaperScissors]: ./game/gawebawebo/RockPaperScissors.html
 
+* [테트리스][Tetris]
+
+[Tetris]: ./game/tetris/
+
 <br>
 
 >## 6. tools

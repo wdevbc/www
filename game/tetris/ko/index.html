@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>테트리스</title>
+        <link rel="stylesheet" type="text/css" href="../css/tetris.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <p class="title">간단테트리스</p>
+            <div id="gameField">
+                <div id="gameover">
+                    <center>
+                        <h1>게임종료</h1>
+                        <h4>F5를 눌러 다시 시작하기</h4>
+                    </center>
+                </div>
+                <div id="pause">
+                    <center>
+                        <h1>일시정지</h1>
+                        <h4>P를 눌러 계속하기</h4>
+                    </center>
+                </div>
+                <table id="nextTable" border=0>
+                    <tr><td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td></tr>
+                    <tr><td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td></tr>
+                    <tr><td id="20"></td><td id="21"></td><td id="22"></td><td id="23"></td></tr>
+                    <tr><td id="30"></td><td id="31"></td><td id="32"></td><td id="33"></td></tr>
+                </table>
+                <div id="scoreField">
+                    <p class="sub">레벨</p>
+                    <p id="level">1</p>
+                    <p class="sub">점수</p>
+                    <p id="score">0</p>
+                    <p class="sub">다음</p>
+                    <p><br><br><br></p>
+                    <p class="sub">조작</p>
+                    <p id="help">← ↓ →</p>
+                    <p id="help">Space Bar</p>
+                    <p id="help">P to pause</p>
+                    <p class="sub" id="about" onclick="info()">만든이</p>
+                    <div id="comboField"><i></i></div>
+                </div>
+            </div>
+            <script type="text/javascript" src="../js/tetris.js"></script>
+    </body>
+</html>
