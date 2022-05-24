@@ -19,7 +19,7 @@ td{
 .lang_select > a {display:inline-block;text-decoration:none;color:#333;font-weight:bold;background:#fff;max-width:150px;width:100%;height:60px;line-height:60px;border-radius:15px;margin:10px 30px;font-size:20px;transition:all 0.5s ease-in-out}
 .lang_select > a:hover {background:#000;color:#fff}
 .copy {text-align:center;color:#fff}
-.bitcoin {color:#fff;font-size:24px}
+.bitcoin {color:#fff;font-size:24px;text-align:center}
 #gameField{
 
 }
