@@ -49,6 +49,9 @@
 
 [html&css_guide]: ./htmlcss/guide/
 
+* [bg-attachment][bg-attachment]
+
+[bg-attachment]: ./htmlcss/bgattachment/
 
 <br>
 
