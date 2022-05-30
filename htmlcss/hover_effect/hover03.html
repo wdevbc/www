@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hover</title>
+    <link rel="stylesheet" href="./common/reset.css">
+    <style>
+        body {height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#E0E0E0;overflow:hidden}
+        h1 {font-size:22px;color:#151E3F;font-weight:300;letter-spacing:2px}
+        .wrapper {display:flex;justify-content:center;align-items:center}
+        .wrapper>* {margin:5px}
+        .media {width:300px;height:200px;overflow:hidden;position:relative;display:flex;justify-content:center;align-items:center}
+        .media img {max-width:100%;height:auto}
+        .layer {opacity:0;position:absolute;display:flex;justify-content:center;align-items:center;width:10px;height:90%;background:#FFF;color:#151E3F;transition:all 0.9s ease}
+        .layer p {transition:all 0.9s ease;transform:scale(0.1)}
+        p {text-align:center;font-size:15px;letter-spacing:1px}
+        .media:hover .layer {opacity:0.8;width:90%;transition:all 0.5s ease}
+        .media:hover .layer p {transform:scale(1);transition:all 0.9s ease}
+        @media (max-width:800px) {
+            body {transform:scale(0.6)}
+        }
+        @media (max-width:600px) {
+            .wrapper {display:block}
+            .wrapper > * {margin:10px}
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gallery with hover effect</h1>
+    <div class="wrapper">
+        <div class="media">
+            <div class="layer">    
+                <p>+ Paul Gilmore</p>
+            </div>
+            <img src="./images/hover_img01.jpg" alt="sample image">
+        </div>
+        <div class="media">
+            <div class="layer">    
+                <p>+ M. O' Neil</p>
+            </div>
+            <img src="./images/hover_img02.jpg" alt="sample image">
+        </div>
+        <div class="media">
+            <div class="layer">    
+                <p>+ N. Mehta</p>
+            </div>
+            <img src="./images/hover_img03.jpg" alt="sample image">
+        </div>
+    </div>
+
+</body>
+
+</html>

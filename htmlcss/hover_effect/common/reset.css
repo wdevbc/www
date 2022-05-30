@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+* {box-sizing:border-box}
+*::before, *::after {box-sizing:border-box}
+body {font-family:'Noto Sans KR', sans-serif;font-size:1em;margin:0;background:#f2f0ed;overflow:hidden}
+a {text-decoration:none;color:#333}
+
+/*  */
+.centered {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%)}
