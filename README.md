@@ -55,7 +55,7 @@
 
 * [hover-effect][hover-effect]
 
-[hover-effect]: ./htmlcss/hover_effect/
+[hover-effect]: ./htmlcss/hover_effect/list.html
 
 <br>
 
