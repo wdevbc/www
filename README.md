@@ -101,6 +101,10 @@
 
 [calendar]: http://stu.wdev.kr/calendar/calendar.php
 
+* [parameter][parameter]
+
+[parameter]: http://stu.wdev.kr/parameter/
+
 * 심플게시판
 * include
 

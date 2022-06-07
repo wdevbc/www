@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hover</title>
+    <link rel="stylesheet" href="./common/reset.css">
+    <style>
+        .wrap {max-width:100%;width:1120px;padding:0 20px;margin:0 auto;box-sizing:border-box}
+        .bg {position:absolute;left:20%;top:20%;bottom:20%;right:20%;border-radius:50px;background:transparent;transition:all 0.3s ease-in-out}
+        .list {top:20%}
+        .list > li {display:inline-block;width:clac(100%/3);padding:40px;border-radius:20px;background:#ff6}
+        .list .첫번째 {background:#ff6}
+        .list .두번째 {background:#66f}
+        .list .세번째 {background:#f6f}
+        .list > li .bg {visibility:hidden;z-index:-1}
+        .list > li:hover .bg {visibility:visible}
+        .list > li:nth-child(1):hover .bg {background:#ff6}
+        .list > li:nth-child(2):hover .bg {background:#66f}
+        .list > li:nth-child(3):hover .bg {background:#f6f}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li class="첫번째">
+                첫번째 hover
+                <div class="bg"></div>
+            </li>
+            <li class="두번째">
+                두번째 hover
+                <div class="bg"></div>
+            </li>
+            <li class="세번째">
+                세번째 hover
+                <div class="bg"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
