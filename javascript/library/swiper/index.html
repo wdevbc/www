@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiperjs - parallax</title>
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    <script src="./swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper" style="--swiper-navigation-color: #f00; --swiper-pagination-color: #f00">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/freeimage01.jpg" alt="">
+              <div class="swiper__wrap">
+                <p class="swiper__number" data-swiper-parallax="-150">01</p>                
+                <p class="swiper__title" data-swiper-parallax="-200">title</p>
+                <p class="swiper__descrtion" data-swiper-parallax="-100">swiper descrtion</p>
+                <p class="swiper__한국어설명" data-swiper-parallax="-500">스와이퍼 상세 내용</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/freeimage02.jpg" alt="">
+              <div class="swiper__wrap">
+                <p class="swiper__number" data-swiper-parallax="-150">02</p>                
+                <p class="swiper__title" data-swiper-parallax="-200">title</p>
+                <p class="swiper__descrtion" data-swiper-parallax="-100">swiper descrtion</p>
+                <p class="swiper__한국어설명" data-swiper-parallax="-500">스와이퍼 상세 내용</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/freeimage03.jpg" alt="">
+              <div class="swiper__wrap">
+                <p class="swiper__number" data-swiper-parallax="-150">03</p>                
+                <p class="swiper__title" data-swiper-parallax="-200">title</p>
+                <p class="swiper__descrtion" data-swiper-parallax="-100">swiper descrtion</p>
+                <p class="swiper__한국어설명" data-swiper-parallax="-500">스와이퍼 상세 내용</p>
+              </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>  
+    <!-- Initialize Swiper -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+      speed: 1000,
+			loop: true,
+			effect : 'fade',
+			parallax: true,
+			autoplay: {
+				delay: 2000,
+				disableOnInteraction: false
+			},
+			pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+		});
+    </script>
+    </body>
+</html>
