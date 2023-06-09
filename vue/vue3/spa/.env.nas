@@ -1,0 +1,3 @@
+NODE_ENV=nas
+BASE_URL=/test
+VUE_APP_PORT=8080
