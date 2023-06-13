@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+            *{margin:0;padding:0;box-sizing:border-box}
+            ul,li{list-style:none}
+            .instagram {display:flex;flex-wrap:wrap}
+            .instagram__text {position:absolute;left:0;top:50%;width:100%;height:100%;padding:15px 30px;font-size:16px;font-weight:400;text-align:left;color:#fff;transform:translateY(-50%);z-index:2;opacity:0;-webkit-transition:opacity .55s cubic-bezier(.215, .61, .355, 1);transition:opacity .55s cubic-bezier(.215, .61, .355, 1);overflow:hidden}
+            .instagram>li {flex-basis:calc(100%/5);padding-right:1px;padding-bottom:1px}
+            .instagram__link {display:block;width:100%;padding-top:100%;position:relative;background:no-repeat center center;background-size:cover}
+            .instagram__link:before {content:'';position:absolute;left:0;right:0;top:0;bottom:0;background:rgba(0, 0, 0, .8);background:-webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);background:-webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);background:radial-gradient(ellipse at center, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);z-index:1;opacity:0;-webkit-transition:opacity .55s cubic-bezier(.215, .61, .355, 1);transition:opacity .55s cubic-bezier(.215, .61, .355, 1)}
+            .instagram__link:hover:before,
+            .instagram__link:hover .instagram__text {opacity:1}
+            @media screen and (max-width:1281px) {
+                .instagram>li {flex-basis:calc(100%/4)}
+                .instagram>li p{font-size:14px}
+            }
+            @media screen and (max-width:769px) {
+                .instagram>li {flex-basis:calc(100%/3)}
+                .instagram>li p{font-size:12px}
+            }
+    </style>
+</head>
+<body>
+    <div id="instagram" class="instagram-wrap">
+        <ul class="instagram">
+
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 토큰
+        var token = "IGQVJWcnExdU9aZAlp0WTMzelVLUWtCNEk1WmNCVXhSeGdDX21PdlA1X3pHTlAxUGMzNmw4SGtCbGRmUzYyMTlIWHcySE5SX2EzZAVVGQ2d2WGVwTzZATcXh1ZAWRZAei1ud0xMT0pjdzJrUzUwNE4yMV9haQZDZD";
+        // 갯수
+        var count = 10; 
+        
+
+        $.ajax({
+            type: "GET",
+            dataType: "jsonp",
+            cache: false,
+            url: "https://graph.instagram.com/me/media?access_token=" + token + "&fields=id,caption,media_type,media_url,thumbnail_url,permalink",
+            success: function(response) {
+                if (response.data != undefined && response.data.length > 0) {
+                    for(i = 0; i < count; i++){
+                        if(response.data[i]){
+                            var item = response.data[i];
+                            var image_url = "";
+                            var post = "";
+
+                            if(item.media_type === "VIDEO"){
+                                image_url = item.thumbnail_url;
+                            }else{
+                                image_url = item.media_url;
+                            }
+
+                            post += '<li data=' + i +'>';
+                                post += '<a href="'+ item.permalink +'" target="_blank" rel="noopener noreferrer" style="background-image: url(' + image_url + ');" class="instagram__link">';
+                                    post += '<p class="instagram__text">'+ item.caption +'</p>';
+                                post += '</a>';
+                            post += '</li>';
+
+                            $('.instagram').append(post);
+                        }else{
+                            // if no curent item
+                            show_fallback('#insta-item-'+i)
+                        }
+                    }
+                }else{
+                    // if api error
+                    show_fallback('.instagram-item')
+                }
+            },
+            error :function(){
+                // if http error
+                show_fallback('.instagram-item')
+            }
+
+        });
+
+        function show_fallback(el){
+            $(el).addClass('loaded fallback');
+        }
+
+    </script>
+</body>
+</html>
