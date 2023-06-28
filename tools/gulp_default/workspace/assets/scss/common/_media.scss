@@ -1,0 +1,27 @@
+@media screen and (max-width:1480px) {
+    
+}
+@media screen  and (max-width:1279px) {
+    
+}
+@media screen and (max-width:1024px) {
+
+}
+@media screen and (max-width:769px){
+    .pcv{display:none}
+    .mov{display:block}
+}
+
+// landscape mode
+@media (orientation: landscape) {
+    @media screen and (max-width:1279px) {
+        
+    }
+}
+// hover
+@media screen and (min-width:1024px) and (hover: hover){
+    
+}
+@media screen and (min-width:769px) and (hover: hover){
+    
+}
