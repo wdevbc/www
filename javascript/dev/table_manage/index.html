@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>테이블 관리</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100" rel="stylesheet" />
+    <style>
+        #myTable {
+            width: 100%;
+            text-align: center;
+            border: none;
+            outline: none;
+            border-spacing: unset;
+        }
+
+        #myTable img {
+            max-width: 100px;
+            width: 100%;
+        }
+
+        #myTable button {
+            font-family: 'Material Symbols Outlined';
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        #myTable th:first-child,
+        #myTable td:first-child {
+            /* display: none */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-custom">
+        <style>
+            #myTable {
+                width: 100%;
+                text-align: center;
+                border: none;
+                outline: none;
+                border-spacing: unset;
+            }
+
+            #myTable img {
+                max-width: 100px;
+                width: 100%;
+            }
+
+            #myTable button {
+                font-family: 'Material Symbols Outlined';
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            #myTable th:first-child,
+            #myTable td:first-child {
+                /* display: none */
+            }
+        </style>
+        <button id="addRow" style="display:none;">추가</button>
+        <table id="myTable">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th style="width:60px">Order</th>
+                    <th style="width:100px">이미지</th>
+                    <th style="width:20%">타이틀</th>
+                    <th style="width:auto">서브 타이틀</th>
+                    <th style="width:10%">색상(HEX code)</th>
+                    <th style="width:10%">노출순서</th>
+                    <th style="width:10%">관리</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td class="index">1</td>
+                    <td><img src="./images/temp_icon.svg" alt=""></td>
+                    <td>High-stiffness</td>
+                    <td>
+                        <p>금속보다 가볍고</p>
+                        <p>고강도와 고탄성의 성질</p>
+                    </td>
+                    <td>
+                        259DFF
+                    </td>
+                    <td>
+                        <button class="moveUp">arrow_upward</button>
+                        <button class="moveDown">arrow_downward</button>
+                    </td>
+                    <td>
+                        <button class="deleteRow">close</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="index">2</td>
+                    <td><img src="./images/temp_icon.svg" alt=""></td>
+                    <td>High-stiffness</td>
+                    <td>
+                        <p>금속보다 가볍고</p>
+                        <p>고강도와 고탄성의 성질</p>
+                    </td>
+                    <td>
+                        259DFF
+                    </td>
+                    <td>
+                        <button class="moveUp">arrow_upward</button>
+                        <button class="moveDown">arrow_downward</button>
+                    </td>
+                    <td>
+                        <button class="deleteRow">close</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="index">3</td>
+                    <td><img src="./images/temp_icon.svg" alt=""></td>
+                    <td>High-stiffness</td>
+                    <td>
+                        <p>금속보다 가볍고</p>
+                        <p>고강도와 고탄성의 성질</p>
+                    </td>
+                    <td>
+                        259DFF
+                    </td>
+                    <td>
+                        <button class="moveUp">arrow_upward</button>
+                        <button class="moveDown">arrow_downward</button>
+                    </td>
+                    <td>
+                        <button class="deleteRow">close</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="index">4</td>
+                    <td><img src="./images/temp_icon.svg" alt=""></td>
+                    <td>High-stiffness</td>
+                    <td>
+                        <p>금속보다 가볍고</p>
+                        <p>고강도와 고탄성의 성질</p>
+                    </td>
+                    <td>
+                        259DFF
+                    </td>
+                    <td>
+                        <button class="moveUp">arrow_upward</button>
+                        <button class="moveDown">arrow_downward</button>
+                    </td>
+                    <td>
+                        <button class="deleteRow">close</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            document.getElementById('addRow').addEventListener('click', function () {
+                const tableBody = document.getElementById('tableBody');
+                const rows = tableBody.querySelectorAll('tr');
+                const newRow = document.createElement('tr');
+
+                // 새로운 행에 번호를 순차적으로 추가
+                const cell1 = document.createElement('td');
+                cell1.classList.add('index');
+                cell1.textContent = rows.length + 1;
+                newRow.appendChild(cell1);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = '새로운 내용 '
+                newRow.appendChild(cell2);
+
+                const cell3 = document.createElement('td');
+                cell3.textContent = '새로운 내용 '
+                newRow.appendChild(cell3);
+
+                const buttonCell = document.createElement('td');
+
+                // "위로 옮기기" 버튼
+                const moveUpButton = document.createElement('button');
+                moveUpButton.textContent = 'arrow_upward';
+                moveUpButton.classList.add('moveUp');
+                buttonCell.appendChild(moveUpButton);
+
+                // "아래로 옮기기" 버튼
+                const moveDownButton = document.createElement('button');
+                moveDownButton.textContent = 'arrow_downward';
+                moveDownButton.classList.add('moveDown');
+                buttonCell.appendChild(moveDownButton);
+
+                // "삭제" 버튼
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'close';
+                deleteButton.classList.add('deleteRow');
+                buttonCell.appendChild(deleteButton);
+
+                newRow.appendChild(buttonCell);
+
+                tableBody.appendChild(newRow);
+
+                // 모든 행의 번호 업데이트
+                updateRowNumbers();
+            });
+
+            // "삭제" 버튼을 클릭할 때 호출되는 함수
+            document.addEventListener('click', function (e) {
+                if (e.target && e.target.classList.contains('deleteRow')) {
+                    e.target.parentElement.parentElement.remove();
+                    // 모든 행의 번호 업데이트
+                    updateRowNumbers();
+                }
+            });
+
+            // "위로 옮기기" 버튼을 클릭할 때 호출되는 함수
+            document.addEventListener('click', function (e) {
+                if (e.target && e.target.classList.contains('moveUp')) {
+                    const row = e.target.parentElement.parentElement;
+                    const previousRow = row.previousElementSibling;
+                    if (previousRow) {
+                        row.parentElement.insertBefore(row, previousRow);
+                        // 모든 행의 번호 업데이트
+                        updateRowNumbers();
+                    }
+                }
+            });
+
+            // "아래로 옮기기" 버튼을 클릭할 때 호출되는 함수
+            document.addEventListener('click', function (e) {
+                if (e.target && e.target.classList.contains('moveDown')) {
+                    const row = e.target.parentElement.parentElement;
+                    const nextRow = row.nextElementSibling;
+                    if (nextRow) {
+                        row.parentElement.insertBefore(nextRow, row);
+                        // 모든 행의 번호 업데이트
+                        updateRowNumbers();
+                    }
+                }
+            });
+
+            // 모든 행의 번호 업데이트 함수
+            function updateRowNumbers() {
+                // const rows = document.querySelectorAll('#tableBody tr');
+                // rows.forEach((row, index) => {
+                //     row.querySelector('.index').textContent = index + 1;
+                // });
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>
