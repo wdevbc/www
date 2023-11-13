@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './index.js',
     output: {
         // 최종 번들링된 자바스크립트
         filename: 'main.js',
@@ -21,7 +21,7 @@ module.exports = {
             template: "./index.html" // index.html을 기본 템플릿으로 반영할 수 있도록 설정
         }),
         new MiniCssExtractPlugin({
-            filename: "common.css",
+            filename: "assets/common.css",
         }),
         new CleanWebpackPlugin(),
     ],
