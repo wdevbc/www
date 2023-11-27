@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <title>언어 변경 및 세션스토리지 저장</title>
+        <meta name="Generator" content="" />
+        <meta name="Author" content="" />
+        <meta name="keyword" content="" />
+        <meta name="description" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="" />
+        <meta property="og:image" content="" />
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <div id="container" class="container">
+                <main id="main" class="main"></main>
+                <div>
+                    <!-- lang test -->
+                    <a href="#" class="lang-select">en</a>
+                    <a href="#" class="lang-select">ko</a>
+                    <a href="#" class="lang-select">fr</a>
+                    <ul class="nav">
+                        <li><a href="#" data-i18n="nav.page1"></a></li>
+                        <li><a href="#" data-i18n="nav.page2"></a></li>
+                        <li><a href="#" data-i18n="nav.page3"></a></li>
+                    </ul>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.5.0/i18next.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+
+                    <script>
+                        $(document).ready(function () {
+                            if (sessionStorage.getItem('lang') == null) {
+                                lang = 'ko';
+                            } else {
+                                lang = sessionStorage.getItem('lang');
+                            }
+
+                            i18next.init(
+                                {
+                                    lng: lang,
+                                    length,
+                                    resources: {
+                                        en: {
+                                            translation: {
+                                                nav: {
+                                                    page1: 'Page One',
+                                                    page2: 'Page Two',
+                                                    page3: 'Page Three',
+                                                },
+                                            },
+                                        },
+                                        ko: {
+                                            translation: {
+                                                nav: {
+                                                    page1: '첫번째 페이지',
+                                                    page2: '두번째 페이지',
+                                                    page3: '세번째 페이지',
+                                                },
+                                            },
+                                        },
+                                        fr: {
+                                            translation: {
+                                                nav: {
+                                                    page1: 'Page Un',
+                                                    page2: 'Page Deux',
+                                                    page3: 'Page Trois',
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                function (err, t) {
+                                    jqueryI18next.init(i18next, $, {
+                                        i18nName: 'i18next',
+                                    });
+
+                                    $('.nav').localize();
+
+                                    $('.lang-select').click(function () {
+                                        var selectedLanguage = this.innerHTML;
+                                        sessionStorage.setItem('lang', selectedLanguage);
+                                        i18next.changeLanguage(selectedLanguage);
+                                        $('.nav').localize();
+                                    });
+                                }
+                            );
+                        });
+                    </script>
+                </div>
+            </div>
+            <footer id="footer" class="footer">
+                <div class="footer__wrap"></div>
+            </footer>
+        </div>
+    </body>
+</html>
