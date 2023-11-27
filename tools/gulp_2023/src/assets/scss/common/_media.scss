@@ -1,0 +1,17 @@
+@media screen and (max-width: 1400px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024x) {}
+
+@media screen and (max-width: 769px) {}
+
+
+
+// landscape mode
+@media (orientation: landscape) {
+    @media screen and (max-width: 1279px) {}
+}
+
+// hover
+@media screen and (max-width: 1280px) and (hover: hover) {}

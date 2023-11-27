@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@import 'common/base';
+@import 'common/font';
+@import 'common/variables';
+@import 'common/mixin';
+
+/**
+ * ! common
+*/
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    vertical-align: top;
+}
+
+.blind {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+/**
+ * ! button
+ */
+
+.btn {
+    display: inline-block;
+    line-height: 1.8;
+    text-align: center;
+
+    &--search {
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/icons/btn-search.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+/**
+ * ! sub
+*/
+@import 'common/media';
