@@ -1,0 +1,23 @@
+{
+    "gnb": {
+        "ABOUT_US": "회사소개",
+        "COMPANY": "회사",
+        "OUR_STORY": "우리이야기",
+        "OUR_HERITAGE": "우리유산",
+        "LOCATION": "찾아오시는길",
+        "SUSTAINABILITY": "지속가능성",
+        "CAREER": "커리어",
+        "OUR_PEOPLE": "우리사람들",
+        "CAREER_IN_GCC": "이력",
+        "PRODUCT": "상품",
+        "IMMUNCELL": "면역세포-LC(KOR)",
+        "RANDD": "연구개발",
+        "OUR_SCIENCE": "우리서비스",
+        "PIPELIINE": "이어진세부",
+        "PUBLICATION": "출판",
+        "BIO_SOLUTION": "바이오솔루션",
+        "LOGISTICS": "물류센터",
+        "CELL_BANKING": "셀뱅킹",
+        "CDMO": "CDMO"
+    }
+}

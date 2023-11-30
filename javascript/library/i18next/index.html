@@ -15,6 +15,39 @@
         <meta property="og:url" content="" />
         <meta property="og:image" content="" />
         <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                vertical-align: top;
+            }
+            ul,
+            li {
+                list-style: none;
+            }
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+            .wrap {
+                max-width: 1180px;
+                margin: 0 auto;
+            }
+            .nav {
+                margin-top: 50px;
+            }
+            .lang-select {
+                display: inline-block;
+                padding: 10px;
+                border: 1px solid #333;
+            }
+            .lnb-list {
+                margin-top: 20px;
+            }
+            .lnb-list li {
+                padding-left: 50px;
+            }
+        </style>
     </head>
 
     <body>
@@ -25,15 +58,27 @@
                     <!-- lang test -->
                     <a href="#" class="lang-select">en</a>
                     <a href="#" class="lang-select">ko</a>
-                    <a href="#" class="lang-select">fr</a>
                     <ul class="nav">
-                        <li><a href="#" data-i18n="nav.page1"></a></li>
-                        <li><a href="#" data-i18n="nav.page2"></a></li>
-                        <li><a href="#" data-i18n="nav.page3"></a></li>
+                        <li>
+                            <a href="#" data-i18n="gnb.ABOUT_US">ABOUT US</a>
+                            <div class="lnb">
+                                <ul class="lnb-list">
+                                    <li><a href="#" class="url" data-i18n="gnb.COMPANY"></a></li>
+                                    <li><a href="#" data-i18n="gnb.OUR_STORY"></a></li>
+                                    <li><a href="#" data-i18n="gnb.OUR_HERITAGE"></a></li>
+                                    <li><a href="#" data-i18n="gnb.LOCATION"></a></li>
+                                    <li><a href="#" data-i18n="gnb.SUSTAINABILITY"></a></li>
+                                    <li><a href="#" data-i18n="gnb.CAREER"></a></li>
+                                    <li><a href="#" data-i18n="gnb.OUR_PEOPLE"></a></li>
+                                    <li><a href="#" data-i18n="gnb.CAREER_IN_GCC"></a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
+
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.5.0/i18next.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
-
+                    <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/i18nextXHRBackend.min.js"></script>
                     <script>
                         $(document).ready(function () {
                             if (sessionStorage.getItem('lang') == null) {
@@ -42,38 +87,11 @@
                                 lang = sessionStorage.getItem('lang');
                             }
 
-                            i18next.init(
+                            i18next.use(i18nextXHRBackend).init(
                                 {
                                     lng: lang,
-                                    length,
-                                    resources: {
-                                        en: {
-                                            translation: {
-                                                nav: {
-                                                    page1: 'Page One',
-                                                    page2: 'Page Two',
-                                                    page3: 'Page Three',
-                                                },
-                                            },
-                                        },
-                                        ko: {
-                                            translation: {
-                                                nav: {
-                                                    page1: '첫번째 페이지',
-                                                    page2: '두번째 페이지',
-                                                    page3: '세번째 페이지',
-                                                },
-                                            },
-                                        },
-                                        fr: {
-                                            translation: {
-                                                nav: {
-                                                    page1: 'Page Un',
-                                                    page2: 'Page Deux',
-                                                    page3: 'Page Trois',
-                                                },
-                                            },
-                                        },
+                                    backend: {
+                                        loadPath: './{{lng}}.json',
                                     },
                                 },
                                 function (err, t) {
@@ -81,13 +99,16 @@
                                         i18nName: 'i18next',
                                     });
 
-                                    $('.nav').localize();
+                                    $('html').localize();
+                                    $('html').attr('lang', i18next.language);
 
                                     $('.lang-select').click(function () {
                                         var selectedLanguage = this.innerHTML;
                                         sessionStorage.setItem('lang', selectedLanguage);
-                                        i18next.changeLanguage(selectedLanguage);
-                                        $('.nav').localize();
+                                        i18next.changeLanguage(selectedLanguage, function (err, t) {
+                                            $('html').localize();
+                                            $('html').attr('lang', i18next.language);
+                                        });
                                     });
                                 }
                             );
