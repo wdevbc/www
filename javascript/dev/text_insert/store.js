@@ -1,0 +1,16 @@
+window.messages = {
+    GNB_ok: '확인',
+    GNB_URL_ok: 'http://naver.com',
+    GNB_select: '선택',
+    GNB_cancel: '취소',
+    GNB_error: '에러',
+    GNB_save: '저장',
+    GNB_detail: '상세',
+    GNB_notice: '알림',
+    GNB_confirm: '확인',
+    GNB_disable: '비활성',
+    GNB_upload: '업로드',
+    GNB_close: '닫기',
+    GNB_delete: '삭제',
+    GNB_add: '추가',
+};
