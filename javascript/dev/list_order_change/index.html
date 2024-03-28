@@ -5,100 +5,381 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sortable List</title>
         <style>
-            * {
-                margin: 0;
-                padding: 0;
+            .list-file-select {
+                display: none;
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                ul,
+                li {
+                    list-style: none;
+                }
+                button {
+                    background-color: transparent;
+                    border: unset;
+                    cursor: pointer;
+                }
+                .blind {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    overflow: hidden;
+                    width: 1px;
+                    height: 1px;
+                    font-size: 0;
+                    line-height: 0;
+                    visibility: hidden;
+                }
+                /* css */
+                .list-layer {
+                    position: fixed;
+                    left: 0;
+                    width: 100%;
+                    top: 0;
+                    min-height: 100vh;
+                    background-color: rgba(0, 0, 0, 0.7);
+                }
+                .list-layer__header {
+                    position: relative;
+                    padding-right: 40px;
+                }
+                .list-layer__body {
+                    margin-top: 20px;
+                }
+                .list-layer__footer {
+                    margin-top: 20px;
+                }
+                .list-layer__title {
+                    font-size: 18px;
+                    line-height: 1.2;
+                    color: #3a3f52;
+                }
+                .list-layer__desc {
+                    margin-top: 4px;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    color: #515978;
+                }
+                .list-layer__wrap {
+                    position: relative;
+                    max-width: 530px;
+                    height: 90vh;
+                    margin: 5vh auto;
+                    padding: 24px 20px;
+                    border-radius: 10px;
+                    background-color: #fff;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+                .list-sort__wrap li {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    position: relative;
+                    background-color: #fff;
+                }
+
+                .list-sort__wrap li ~ li {
+                    margin-top: 20px;
+                }
+
+                .list-sort__contents {
+                    flex-basis: 435px;
+                    display: flex;
+                    gap: 7px;
+                    height: 94px;
+                    padding: 11px 17px;
+                    border: 1px solid #ddd;
+                    border-radius: 7px;
+                }
+                .list-sort__contents-left {
+                    flex-basis: 70px;
+                }
+                .list-sort__contents-right {
+                    position: relative;
+                    flex: 1;
+                }
+                .list-sort__thumb {
+                    display: inline-block;
+                    width: 70px;
+                    height: 70px;
+                }
+                .list-sort__thumb img {
+                    width: 100%;
+                    height: 70px;
+                    object-fit: cover;
+                }
+
+                .list-sort__label {
+                    display: inline-block;
+                    padding: 0 24px;
+                    border-radius: 4px;
+                    color: #fff;
+                    background-color: #0067ac;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 30px;
+                }
+                .list-sort__filename {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    color: #7e7e7e;
+                }
+
+                /* input */
+                .file-upload {
+                    border: none;
+                    font: inherit;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                }
+
+                /* btn */
+                .btn-ham-move {
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 4px;
+                    background: url(./images/icons/icon_ham_move.svg) center no-repeat;
+                    cursor: grab;
+                }
+                .btn-remove {
+                    display: none;
+                    min-width: 60px;
+                    border: 1px solid #000;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 28px;
+                    cursor: pointer;
+                }
+                .btn-remove.active {
+                    display: inline-block;
+                }
+                .btn-layer-close {
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                    top: calc(50% - 12px);
+                    width: 24px;
+                    height: 24px;
+                    background: url(./images/icons/icon_layer_close.svg) center no-repeat;
+                    cursor: pointer;
+                }
+                .btn-layer-open,
+                .btn-layer-save {
+                    display: block;
+                    width: 100%;
+                    background-color: #0067ac;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #fff;
+                    line-height: 44px;
+                }
             }
-            ul,
-            li {
-                list-style: none;
-            }
-            .list-layer {
-                position: fixed;
-                left: 0;
-                width: 100%;
-                top: 0;
-                min-height: 100vh;
-                background-color: rgba(0, 0, 0, 0.7);
-            }
-            .list-layer__wrap {
-                position: relative;
-                max-width: 1024px;
-                height: 80vh;
-                margin: 0 auto;
-                padding: 10vh 20px;
-                background-color: #fff;
-                overflow-y: auto;
-            }
-            .list-sort__wrap li {
-                padding: 20px;
-                border: 1px solid #ddd;
-                background-color: #fff;
-            }
-            .list-sort__wrap li ~ li {
-                margin-top: 10px;
-            }
-            .list-sort__wrap li input {
-                touch-action: none;
-            }
-            .list-sort__wrap li span {
-                display: inline-block;
-                width: 100px;
-                height: 100px;
-            }
-            .list-sort__wrap li span img {
-                width: 100%;
-                height: 100px;
-                object-fit: cover;
+            .list-file-select.active {
+                display: block;
             }
         </style>
     </head>
     <body>
-        <div class="list-file-selec">
+        <div>
+            <table>
+                <colgroup>
+                    <col style="width: 20%" />
+                </colgroup>
+                <tr>
+                    <th style="background-color: #ddd">카드뉴스</th>
+                    <td>
+                        <button type="button" class="btn-news-manage">카드뉴스 관리</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="list-file-select">
             <div class="list-layer">
                 <div class="list-layer__wrap">
                     <div class="list-layer__header">
-                        <h2>list-layer</h2>
+                        <h2 class="list-layer__title">카드뉴스 관리</h2>
+                        <p class="list-layer__desc">사이즈: 800x가변/ 제한 용량: 이미지당 3MB/ 허용 확장자: JPG, JPEG, PNG</p>
+                        <button class="btn-layer-close"></button>
                     </div>
                     <div class="list-layer__body">
                         <div class="list-sort">
                             <ul class="list-sort__wrap">
                                 <li>
-                                    1 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real01" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real01">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    2 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real02" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real02">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    3 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real03" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real03">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    4 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real04" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real04">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    5 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real05" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real05">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    6 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real06" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real06">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    7 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real07" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real07">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    8 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real08" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real08">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    9 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real09" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real09">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    10 <span><img src="https://place-hold.it/100x100" alt="" /></span><input type="file" class="file-upload" accept="image/*" /><button type="button" class="btn-remove">x</button>
+                                    <span class="btn-ham-move"></span>
+                                    <div class="list-sort__contents">
+                                        <div class="list-sort__contents-left">
+                                            <span class="list-sort__thumb">
+                                                <img src="./images/file_thumb.svg" alt="" />
+                                            </span>
+                                        </div>
+                                        <div class="list-sort__contents-right">
+                                            <input type="file" class="file-upload blind" id="list-sort-real10" accept="image/*" />
+                                            <label class="list-sort__label" for="list-sort-real10">파일 선택</label>
+                                            <button type="button" class="btn-remove">초기화</button>
+                                            <span class="list-sort__filename">선택된 파일 없음</span>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="list-layer__footer">
-                        <button class="list-layer-close">닫기</button>
-                        <button class="list-layer-save">저장</button>
+                        <button type="button" class="btn-layer-save">카드뉴스 저장하기</button>
                     </div>
                 </div>
 
@@ -106,52 +387,62 @@
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
                 <script>
                     $(function () {
-                        $('.list-sort__wrap').sortable({
-                            update: function (event, ui) {
-                                updateImages();
-                            },
-                        });
-                        $('.list-sort__wrap').disableSelection();
+                        // list sort
+                        $('.list-sort__wrap')
+                            .sortable({
+                                items: 'li',
+                                cursor: 'move',
+                                handle: '.btn-ham-move',
+                            })
+                            .disableSelection();
 
-                        $('.file-upload').change(function () {
-                            var file = this.files[0];
+                        // layer open/close
+                        $('.btn-news-manage').click(function () {
+                            $('.list-file-select').addClass('active');
+                        });
+
+                        $('.btn-layer-close').click(function () {
+                            $('.list-file-select').removeClass('active');
+                        });
+
+                        // 파일 선택 이벤트 처리
+                        function handleFileSelection(input, listItem) {
+                            var file = input.files[0];
                             var reader = new FileReader();
-                            var span = $(this).siblings('span')[0];
+                            var thumb = listItem.find('.list-sort__thumb');
+                            var removeBtn = listItem.find('.btn-remove');
+                            var fileFeild = listItem.find('.list-sort__filename');
+                            const fileName = input.files[0]?.name || '선택된 파일 없음';
 
                             reader.onload = function (e) {
-                                $(span).html('<img src="' + e.target.result + '" alt="uploaded image" />');
+                                thumb.html('<img src="' + e.target.result + '" alt="uploaded image" />');
+                                thumb.closest('li').attr('data-file', e.target.result);
+                                removeBtn.addClass('active');
+                                fileFeild.text(fileName);
                             };
 
                             reader.readAsDataURL(file);
+                        }
+
+                        // 파일 선택 시
+                        $('.file-upload').change(function () {
+                            var input = $(this);
+                            var listItem = input.closest('li');
+                            handleFileSelection(input[0], listItem);
                         });
 
+                        // 초기화 버튼 클릭 시
                         $('.btn-remove').click(function () {
                             var listItem = $(this).closest('li');
-                            var span = listItem.find('span');
+                            var thumb = listItem.find('.list-sort__thumb');
                             var fileInput = listItem.find('.file-upload');
-
-                            // Reset file input value
+                            var removeBtn = listItem.find('.btn-remove');
                             fileInput.val('');
-
-                            // Reset span content
-                            span.html('<img src="https://place-hold.it/100x100" alt="" />');
+                            thumb.html('<img src="./images/file_thumb.svg" alt="" />');
+                            thumb.closest('li').attr('data-file', '');
+                            removeBtn.removeClass('active');
+                            listItem.find('.list-sort__filename').text('선택된 파일 없음');
                         });
-
-                        function updateImages() {
-                            $('.list-sort__wrap li').each(function () {
-                                var input = $(this).find('.file-upload')[0];
-                                if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-                                    var span = $(this).find('span')[0];
-
-                                    reader.onload = function (e) {
-                                        $(span).html('<img src="' + e.target.result + '" alt="uploaded image" />');
-                                    };
-
-                                    reader.readAsDataURL(input.files[0]);
-                                }
-                            });
-                        }
                     });
                 </script>
             </div>
