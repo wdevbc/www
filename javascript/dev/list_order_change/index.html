@@ -50,7 +50,12 @@
                     margin-top: 20px;
                 }
                 .list-layer__footer {
-                    margin-top: 20px;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 2px;
+                    transform: translateX(-50%);
+                    width: 530px;
+                    /* margin-top: 20px; */
                 }
                 .list-layer__title {
                     font-size: 18px;
@@ -69,7 +74,10 @@
                     height: 90vh;
                     margin: 5vh auto;
                     padding: 24px 20px;
+                    padding-bottom: 50px;
                     border-radius: 10px;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
                     background-color: #fff;
                     overflow-y: auto;
                     overflow-x: hidden;
@@ -378,9 +386,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="list-layer__footer">
-                        <button type="button" class="btn-layer-save">카드뉴스 저장하기</button>
-                    </div>
+                </div>
+                <div class="list-layer__footer">
+                    <button type="button" class="btn-layer-save">카드뉴스 저장하기</button>
                 </div>
 
                 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -442,6 +450,11 @@
                             thumb.closest('li').attr('data-file', '');
                             removeBtn.removeClass('active');
                             listItem.find('.list-sort__filename').text('선택된 파일 없음');
+                        });
+
+                        // save 클릭 시
+                        $('.btn-layer-save').on('click', function () {
+                            $('.list-file-select').removeClass('active');
                         });
                     });
                 </script>

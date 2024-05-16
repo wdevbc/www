@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Email Form</title>
+    </head>
+    <body>
+        <form id="emailForm">
+            <label for="to">대상 이메일:</label>
+            <input type="email" id="to" name="to" value="admin@admin.co.kr" readonly />
+            <br />
+            <label for="subject">제목:</label>
+            <input type="text" id="subject" name="subject" required />
+            <br />
+            <label for="message">내용:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            <br />
+            <button type="submit">보내기</button>
+        </form>
+
+        <script>
+            document.getElementById('emailForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                let to = document.getElementById('to').value;
+                let subject = document.getElementById('subject').value;
+                let message = document.getElementById('message').value;
+                sendEmail(to, subject, message);
+            });
+
+            function sendEmail(to, subject, message) {
+                // 여기서 이메일을 보내는 작업을 수행합니다.
+                // 클라이언트 측에서는 직접적으로 이메일을 보내는 것은 안전하지 않으므로
+                // 실제 프로덕션 환경에서는 서버 측에서 백엔드를 사용하여 이메일을 보내는 것이 좋습니다.
+                console.log('이메일을 보냈습니다.');
+                console.log('대상:', to);
+                console.log('제목:', subject);
+                console.log('내용:', message);
+                // 여기에 실제 이메일 보내기 코드를 작성하세요.
+            }
+        </script>
+    </body>
+</html>

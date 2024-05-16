@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1 data-text="title"></h1>
+    <p data-text="content"></p>
+    <p data-text="now_sys_lang"></p>
+    <ul class="nav">
+      <li data-text="NAV_first"></li>
+      <li data-text="NAV_second"></li>
+    </ul>
+    <div class="contents">
+      <p data-text="title2"></p>
+      <p data-text="content2"></p>
+      <p data-text="now_sys_lang2"></p>
+    </div>
+    <script>
+      // 데이터 적용 함수
+      function applyData(data) {
+        // 모든 데이터 객체의 키와 해당 값을 반복하여 적용
+        for (const dataKey in data) {
+          const dataObj = data[dataKey];
+          for (const key in dataObj) {
+            const element = document.querySelector(`[data-text="${key}"]`);
+            if (element) {
+              element.innerText = dataObj[key];
+            } else {
+              console.error(`Element with data-text="${key}" not found.`);
+            }
+          }
+        }
+      }
+
+      // JSON 파일 가져오기 및 데이터 적용
+      fetch('./text_data.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          try {
+            applyData(data);
+          } catch (error) {
+            console.error('Error applying data:', error);
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
+  </body>
+</html>

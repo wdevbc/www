@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "NAV_first": "Welcome",
+    "NAV_second": "Speakers",
+    "NAV_third": "Program",
+    "NAV_fourth": "Venue",
+    "NAV_fifth": "Contact",
+    "NAV_sixth": "Past Sysmposia"
+  },
+  "first": {
+    "title2": "안녕하세요.4",
+    "content2": "여기는 컨텐츠 구역입니다.2",
+    "now_sys_lang2": "시스템 로캘3"
+  },
+  "second": {
+    "title": "안녕하세요.2",
+    "content": "여기는 컨텐츠 구역입니다.3",
+    "now_sys_lang": "시스템 로캘4"
+  }
+}
