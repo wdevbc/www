@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marquee</title>
+  </head>
+  <body>
+    <style>
+      .class {
+        display: flex;
+        overflow: hidden;
+      }
+      .class p {
+        flex-basis: 550px;
+        flex-shrink: 0;
+        padding-right: 40px;
+      }
+    </style>
+    <h1>marquee Demo</h1>
+    <hr />
+    <div class="class">
+      <p>"You include text, images, and other resources here in HTML."</p>
+      <p>
+        "Contents are divided into multiple structures if they are short in
+        length."
+      </p>
+    </div>
+    <script src="./marquee.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const marquee = new SimpleMarquee(".class", {
+          autoplay: true,
+          speed: 0.9,
+          pauseOnMouseEnter: true,
+          direction: "left",
+        });
+      });
+    </script>
+  </body>
+</html>
