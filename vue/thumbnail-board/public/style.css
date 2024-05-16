@@ -1,0 +1,22 @@
+/* public/styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.post img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}

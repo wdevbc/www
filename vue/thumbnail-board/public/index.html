@@ -1,0 +1,22 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thumbnail Board</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Thumbnail Board</h1>
+            <div class="thumbnails">
+                <div v-for="(post, index) in posts" :key="index" class="post">
+                    <img :src="post.thumbnail" alt="Thumbnail" />
+                    <p>{{ post.title }}</p>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="/app.js"></script>
+    </body>
+</html>
